@@ -35,7 +35,7 @@ class HBNBCommand(cmd.Cmd):
         print("")
         exit()
 
-    def emptyline(self, arg):
+    def emptyline(self):
         """ Method to pass if an emptyline is encountered """
         pass
 
@@ -113,7 +113,7 @@ class HBNBCommand(cmd.Cmd):
         """  Updates an instance based on the class name and id by adding
         or updating attribute (save the change into the JSON file) """
         arg_list = arg.split()
-        if len(arg) == 0:
+        if len(arg_list) == 0:
             print("** class name missing **")
             return
         elif arg_list[0] not in self.classes:
@@ -131,8 +131,8 @@ class HBNBCommand(cmd.Cmd):
                     else:
                         setattr(
                                 storage.all()[key],
-                                arg[2],
-                                arg[3][1:-1])
+                                arg_list[2],
+                                arg_list[3][1:-1])
                         storage.all()[key].save()
                 else:
                     print("** attribute name missing **")
