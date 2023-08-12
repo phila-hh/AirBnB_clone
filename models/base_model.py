@@ -11,7 +11,7 @@ class BaseModel(object):
     def __init__(self, *args, **kwargs):
         """ Initializes the attributes of the BaseModel class """
 
-        if kwargs != 0:
+        if kwargs:
             for key, value in kwargs.items():
                 if key == "__class__":
                     continue
